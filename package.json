@@ -5,7 +5,7 @@
   "main": "src/bot.js",
   "author": "Jeremy Roe",
   "dependencies": {
-    "discord.io": "^2.5.3",
+    "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
     "winston": "^3.3.3"
   }
 }
