@@ -4,7 +4,6 @@
   "description": "A bot for the UoM TTRPG Society to make finding groups easier.",
   "main": "src/bot.js",
   "author": "Jeremy Roe",
-  "token": "OTA2OTI5MTQzMjYwNzkwNzg1.YYfxlQ.R07xn1wwp08Aqrwlbua3xqtBbJ4",
   "dependencies": {
     "discord.io": "^2.5.3",
     "winston": "^3.3.3"
