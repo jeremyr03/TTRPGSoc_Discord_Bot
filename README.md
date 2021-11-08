@@ -1,2 +1,2 @@
 # TTRPGSoc_Discord_Bot
-Repository for UoM Tabletop Roleplaying Game Society Discord bot
+Repository for UoM Tabletop Roleplaying Game Society Discord index
