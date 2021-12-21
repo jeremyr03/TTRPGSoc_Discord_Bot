@@ -1,9 +1,11 @@
 // Require the necessary discord.js classes
 const { Client, Intents } = require('discord.js');
-const { token, prefix } = require('../auth.json');
+const { token, prefix} = require('./auth.json');
+const sqlite = require('sqlite3').verbose();
 
 // Create a new client instance
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+
 
 // When the client is ready, run this code (only once)
 client.once('ready', () => {
@@ -11,13 +13,22 @@ client.once('ready', () => {
 });
 
 client.on('message', message => {
-    console.log(message.content);
-    if (message.content === `${prefix}ping`) {
+    // console.log(message.content);
+    if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+    const args = message.content.slice(prefix.length).trim().split('\n');
+    const command = args.shift().toLowerCase();
+    console.log(command);
+    if (command === `ping`) {
         message.channel.send('Pong');
-    }else if (message.content === `${prefix}server`){
-        message.channel.send(`Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`);
-    }else if (message.content === `${prefix}hello`){
-        message.channel.send(`Hello ${message.author.username}! I am a bot for the UoM TTRPG Soc.`);
+    }else if (command === 'create party'){
+        console.log(args.length)
+        if (args.length === 3){
+            console.log('t');
+        }else {
+            message.channel.send('\*To create a party, you need to add the arguments in the format in one message:\*\n\n' +
+                `\> ${prefix}${command}\n\> <Party Description>\n\> <session timing>\n\> \<party size (make sure this is a number)>`);
+        }
     }
 });
 
